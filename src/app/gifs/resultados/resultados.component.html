@@ -1,3 +1,26 @@
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci voluptas iure tenetur libero optio
-debitis! Tenetur, obcaecati dicta autem quia numquam sapiente delectus magnam ex libero labore dignissimos.
-In, totam.
+<!--
+    <ul>
+        <li *ngFor="let gif of resultados">
+            {{gif.title}}
+        </li>
+    </ul>
+-->
+
+<div class="row">
+    <div 
+    *ngFor="let gif of resultados"
+    class="col-md-4 col-sm-6">
+        <div class="card">
+            <img [src]="gif.images.downsized_medium.url" 
+                [alt]="gif.title"
+                class="card-img-top"
+                >
+            <div class="card-body">
+                <a href="" class="card-text">
+                    {{gif.title}}
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
