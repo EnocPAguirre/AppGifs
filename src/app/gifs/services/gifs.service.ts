@@ -21,6 +21,8 @@ export class GifsService {
       this._historial = JSON.parse(localStorage.getItem('historial')!)
     }
 
+    this.resultados = JSON.parse(localStorage.getItem('resultados')!) || [];
+
   }
 
   buscarGifs(query: string){
@@ -36,6 +38,7 @@ export class GifsService {
     this.http.get<SearchGifsResponse>(`https://api.giphy.com/v1/gifs/search?api_key=${this.apiKey}&q=${query}&limit=10`)
     .subscribe((respuesta : SearchGifsResponse) => {
      this.resultados = respuesta.data; 
+     localStorage.setItem('resultados', JSON.stringify(this.resultados) );
     })
   }
 
